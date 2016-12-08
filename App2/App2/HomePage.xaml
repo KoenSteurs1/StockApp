@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App2.HomePage">
+  <StackLayout BackgroundColor="Black">
+
+    <Label Text="Add ticker:" TextColor="White"></Label>
+    <Entry x:Name="txtTicker" TextColor="White"></Entry>
+
+    <Button Clicked="Button_OnClicked" Text="Add stock" TextColor="White"></Button>
+    <ListView x:Name="lstView" RowHeight="60">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Fill" BackgroundColor="Black">
+              <StackLayout Orientation="Vertical">
+                <Label Text = "{Binding Name}" TextColor="White" FontSize="24" AbsoluteLayout.LayoutBounds="0.25, 0.25, 400, 40"/>
+                <Label Text = "{Binding Ticker}" TextColor="White" AbsoluteLayout.LayoutBounds="50, 35, 200, 25"/>
+              </StackLayout>
+            </StackLayout>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+    <Button Clicked="ButtonSave_OnClicked" Text="Save to local file" TextColor="White"></Button>
+    <Button Clicked="ButtonLoad_OnClicked" Text="Load from resource" TextColor="White"></Button>
+    <Button Clicked="ButtonLoadFromLocal_OnClicked" Text="Load from local file" TextColor="White"></Button>
+  </StackLayout>
+</ContentPage>

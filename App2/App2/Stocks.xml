@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ArrayOfStock xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Stock>
+    <Name>Ageas</Name>
+    <Ticker>AGS.BR</Ticker>
+    <Currency>EUR</Currency>
+    <ActualPrice>32.54</ActualPrice>
+    <PurchasePrice>28.12</PurchasePrice>
+    <PurchaseDate></PurchaseDate>
+    <Amount>50</Amount>
+  </Stock>
+  <Stock>
+    <Name>Royal Dutch Shell</Name>
+    <Ticker>RDSA.AS</Ticker>
+    <Currency>EUR</Currency>
+    <ActualPrice>25.45</ActualPrice>
+    <PurchasePrice>20.12</PurchasePrice>
+    <PurchaseDate></PurchaseDate>
+    <Amount>50</Amount>
+  </Stock>
+  <Stock>
+    <Name>Boskalis</Name>
+    <Ticker>BOKA.AS</Ticker>
+    <Currency>EUR</Currency>
+    <ActualPrice>31.54</ActualPrice>
+    <PurchasePrice>28.09</PurchasePrice>
+    <PurchaseDate></PurchaseDate>
+    <Amount>50</Amount>
+  </Stock>
+</ArrayOfStock>
