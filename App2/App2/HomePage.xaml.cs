@@ -21,6 +21,8 @@ namespace App2
         public HomePage()
         {
             InitializeComponent();
+            stocks = new ObservableCollection<Stock>();
+            lstView.ItemsSource = stocks;
         }
 
         void Button_OnClicked(object sender, EventArgs args)
@@ -81,7 +83,7 @@ namespace App2
                 stocks = (ObservableCollection<Stock>)serializer.Deserialize(reader);
             }
 
-            lstView.ItemsSource = stocks;
+           lstView.ItemsSource = stocks;
         }
 
         async void ButtonLoadFromLocal_OnClicked(object sender, EventArgs args)

@@ -6,7 +6,7 @@
     <Currency>EUR</Currency>
     <ActualPrice>32.54</ActualPrice>
     <PurchasePrice>28.12</PurchasePrice>
-    <PurchaseDate></PurchaseDate>
+    <PurchaseDate>2009-03-13T22:16:00</PurchaseDate>
     <Amount>50</Amount>
   </Stock>
   <Stock>
@@ -15,7 +15,7 @@
     <Currency>EUR</Currency>
     <ActualPrice>25.45</ActualPrice>
     <PurchasePrice>20.12</PurchasePrice>
-    <PurchaseDate></PurchaseDate>
+    <PurchaseDate>2009-03-13T22:16:00</PurchaseDate>
     <Amount>50</Amount>
   </Stock>
   <Stock>
@@ -24,7 +24,7 @@
     <Currency>EUR</Currency>
     <ActualPrice>31.54</ActualPrice>
     <PurchasePrice>28.09</PurchasePrice>
-    <PurchaseDate></PurchaseDate>
+    <PurchaseDate>2009-03-13T22:16:00</PurchaseDate>
     <Amount>50</Amount>
   </Stock>
 </ArrayOfStock>

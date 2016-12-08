@@ -5,7 +5,7 @@
   <StackLayout BackgroundColor="Black">
 
     <Label Text="Add ticker:" TextColor="White"></Label>
-    <Entry x:Name="txtTicker" TextColor="White"></Entry>
+    <Entry x:Name="txtTicker" TextColor="White" BackgroundColor="Black"></Entry>
 
     <Button Clicked="Button_OnClicked" Text="Add stock" TextColor="White"></Button>
     <ListView x:Name="lstView" RowHeight="60">
