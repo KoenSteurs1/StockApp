@@ -21,35 +21,16 @@ namespace App2
         public HomePage()
         {
             InitializeComponent();
-            stocks = new ObservableCollection<Stock>();
-            lstView.ItemsSource = stocks;
+            LoadStocks();
         }
 
-        void Button_OnClicked(object sender, EventArgs args)
+        async void Button_OnClicked(object sender, EventArgs args)
         {
-            string name = txtTicker.Text;
-            stocks.Add(new Stock { Name = name, Ticker = "To be added" });
+            await Navigation.PushModalAsync(new AddStock());
         }
 
-        public interface ISQLite
+        async void SaveStocks()
         {
-            SQLiteConnection GetConnection();
-        }
-
-        async void ButtonSave_OnClicked(object sender, EventArgs args)
-        {
-            //var serializer = new XmlSerializer(typeof(ObservableCollection<Stock>));
-            //string myStr;
-            //var ms = new MemoryStream();
-            //serializer.Serialize(ms, stocks);
-
-            //ms.Position = 0;
-            //var sr = new StreamReader(ms);
-            //myStr = sr.ReadToEnd();
-
-            //var fileService = DependencyService.Get<ISaveAndLoad>();
-            //fileService.SaveTextAsync("Stocks.xml", myStr);
-
             var serializer = new XmlSerializer(typeof(ObservableCollection<Stock>));
             string myStr;
             var ms = new MemoryStream();
@@ -72,7 +53,12 @@ namespace App2
             await file.WriteAllTextAsync(myStr);
         }
 
-        void ButtonLoad_OnClicked(object sender, EventArgs args)
+        //void ButtonSave_OnClicked(object sender, EventArgs args)
+        //{
+        //    SaveStocks();
+        //}
+
+        private void LoadStocksFromEmbeddedResource()
         {
             // load file from added resource
             var assembly = typeof(HomePage).GetTypeInfo().Assembly;
@@ -83,10 +69,30 @@ namespace App2
                 stocks = (ObservableCollection<Stock>)serializer.Deserialize(reader);
             }
 
-           lstView.ItemsSource = stocks;
+            lstView.ItemsSource = stocks;
         }
 
-        async void ButtonLoadFromLocal_OnClicked(object sender, EventArgs args)
+        async Task<bool> CheckLocalFileExists()
+        {
+            var returnvalue = false;
+            ExistenceCheckResult res;
+
+            IFolder rootFolder = FileSystem.Current.LocalStorage;
+            res = await rootFolder.CheckExistsAsync("StocksApp");
+
+            if (res == ExistenceCheckResult.FolderExists)
+            { 
+                IFolder folder = await rootFolder.GetFolderAsync("StocksApp");
+            
+                res = await folder.CheckExistsAsync("Stocks.xml");
+                if (res == ExistenceCheckResult.FileExists)
+                    returnvalue = true;
+            }
+
+            return returnvalue;
+        }
+
+        private async void LoadStocksFromLocalFile()
         {
             // load file from local file system
             IFolder rootFolder = FileSystem.Current.LocalStorage;
@@ -102,5 +108,12 @@ namespace App2
             lstView.ItemsSource = stocks;
         }
 
+        async void LoadStocks()
+        {
+            if (await CheckLocalFileExists() == true)
+                LoadStocksFromLocalFile();
+            else
+                LoadStocksFromEmbeddedResource();
+        }
     }
 }

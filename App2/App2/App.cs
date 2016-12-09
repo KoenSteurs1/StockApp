@@ -1,5 +1,7 @@
-﻿using System;
+﻿using App2.ViewModels;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 
@@ -9,9 +11,16 @@ namespace App2
 {
     public class App : Application
     {
+
+        public ObservableCollection<Stock> stocks { get; set; }
+
         public App()
         {
+            //MainPage = new MyTabbedPage();
+            
             MainPage = new HomePage();
+            
+            
             // The root page of your application
             //var content = new ContentPage
             //{
