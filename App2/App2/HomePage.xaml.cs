@@ -29,6 +29,23 @@ namespace App2
             await Navigation.PushModalAsync(new AddStock());
         }
 
+        void ButtonSave_OnClicked(object sender, EventArgs args)
+        {
+            SaveStocks();
+        }
+
+        public async void OnDelete(object sender, EventArgs e)
+        {
+            var confirm = await DisplayAlert("Confirmation", "Are you sure you want to delete this item?", "Yes", "No");
+            if (confirm)
+            {
+                var mi = ((MenuItem)sender);
+                Stock item = stocks.Where(x => x.Id.ToString() == mi.CommandParameter.ToString()).FirstOrDefault();
+                stocks.Remove(item);
+                lstView.ItemsSource = stocks;
+            }
+        }
+
         async void SaveStocks()
         {
             var serializer = new XmlSerializer(typeof(ObservableCollection<Stock>));

@@ -18,11 +18,14 @@
                 <Label Text = "{Binding Ticker}" TextColor="White" AbsoluteLayout.LayoutBounds="50, 35, 200, 25"/>
               </StackLayout>
             </StackLayout>
+            <ViewCell.ContextActions>
+              <MenuItem Clicked="OnDelete" CommandParameter="{Binding Id}" Text="Delete" />
+            </ViewCell.ContextActions>
           </ViewCell>
         </DataTemplate>
       </ListView.ItemTemplate>
     </ListView>
-    <!--<Button Clicked="ButtonSave_OnClicked" Text="Save to local file" TextColor="White"></Button>-->
+    <Button Clicked="ButtonSave_OnClicked" Text="Save stocks" TextColor="White"></Button>
     <!--<Button Clicked="ButtonLoad_OnClicked" Text="Load from resource" TextColor="White"></Button>
     <Button Clicked="ButtonLoadFromLocal_OnClicked" Text="Load from local file" TextColor="White"></Button>-->
   </StackLayout>

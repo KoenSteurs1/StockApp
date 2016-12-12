@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <ArrayOfStock xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Stock>
+    <Id>1</Id>
     <Name>Ageas</Name>
     <Ticker>AGS.BR</Ticker>
     <Currency>EUR</Currency>
@@ -10,6 +11,7 @@
     <Amount>50</Amount>
   </Stock>
   <Stock>
+    <Id>2</Id>
     <Name>Royal Dutch Shell</Name>
     <Ticker>RDSA.AS</Ticker>
     <Currency>EUR</Currency>
@@ -19,6 +21,7 @@
     <Amount>50</Amount>
   </Stock>
   <Stock>
+    <Id>3</Id>
     <Name>Boskalis</Name>
     <Ticker>BOKA.AS</Ticker>
     <Currency>EUR</Currency>

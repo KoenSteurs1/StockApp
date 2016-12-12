@@ -12,6 +12,8 @@ namespace App2.ViewModels
     public class Stock
     {
         [DataMember]
+        public int Id { get; set; }
+        [DataMember]
         public string Name { get; set; }
         [DataMember]
         public string Ticker { get; set; }
