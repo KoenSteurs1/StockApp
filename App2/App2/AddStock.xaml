@@ -3,18 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="App2.AddStock">
   <Label Text="Add Stock" VerticalOptions="Center" HorizontalOptions="Center" />
-  <StackLayout Orientation="Vertical">
+  <StackLayout Orientation="Vertical" BackgroundColor="Black">
     <StackLayout Orientation="Horizontal">
       <Label WidthRequest="80" Text ="Ticker:" TextColor="White" FontSize="16"></Label>
-      <Entry HorizontalOptions="FillAndExpand" x:Name="txtTicker" TextColor="Black"></Entry>
+      <Entry HorizontalOptions="FillAndExpand" x:Name="txtTicker" BackgroundColor="White" TextColor="Black"></Entry>
     </StackLayout>
     <StackLayout Orientation="Horizontal">
       <Label WidthRequest="80" Text ="Amount:" TextColor="White" FontSize="16"></Label>
-      <Entry HorizontalOptions="FillAndExpand" x:Name="txtAmount" TextColor="Black"></Entry>
+      <Entry HorizontalOptions="FillAndExpand" x:Name="txtAmount" BackgroundColor="White" TextColor="Black"></Entry>
     </StackLayout>
     <StackLayout Orientation="Horizontal">
       <Label WidthRequest="80" Text ="Price:" TextColor="White" FontSize="16"></Label>
-      <Entry HorizontalOptions="FillAndExpand" x:Name="txtPrice" TextColor="Black"></Entry>
+      <Entry HorizontalOptions="FillAndExpand" x:Name="txtPrice" BackgroundColor="White" TextColor="Black"></Entry>
     </StackLayout>
     <Button Clicked="Button_OnClicked" Text="Add stock" TextColor="White"></Button>
   </StackLayout>
