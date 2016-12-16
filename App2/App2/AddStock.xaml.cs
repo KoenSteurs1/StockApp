@@ -22,6 +22,8 @@ namespace App2
             string errorMessage = string.Empty;
 
             Stock item = new ViewModels.Stock();
+            item.Currency = "EUR";
+            item.Name = "dummy";
 
             item.Ticker = txtTicker.Text;
 
@@ -55,6 +57,11 @@ namespace App2
             }
             else
             {
+                StockStore ss = new StockStore();
+                await ss.LoadStocks();
+                await ss.AddStock(item);
+                await ss.SaveStocks();
+
                 await DisplayAlert("Added", "Stock has been added", "OK");
                 await Navigation.PushModalAsync(new HomePage());
             }

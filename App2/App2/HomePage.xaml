@@ -25,7 +25,7 @@
         </DataTemplate>
       </ListView.ItemTemplate>
     </ListView>
-    <Button Clicked="ButtonSave_OnClicked" Text="Save stocks" TextColor="White"></Button>
+    <!--<Button Clicked="ButtonSave_OnClicked" Text="Save stocks" TextColor="White"></Button>-->
     <!--<Button Clicked="ButtonLoad_OnClicked" Text="Load from resource" TextColor="White"></Button>
     <Button Clicked="ButtonLoadFromLocal_OnClicked" Text="Load from local file" TextColor="White"></Button>-->
   </StackLayout>

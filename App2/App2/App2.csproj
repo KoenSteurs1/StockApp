@@ -47,6 +47,7 @@
     <Compile Include="MyTabbedPage.xaml.cs">
       <DependentUpon>MyTabbedPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="StockStore.cs" />
     <Compile Include="ViewModels\Stock.cs" />
   </ItemGroup>
   <ItemGroup>
