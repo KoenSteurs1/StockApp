@@ -49,6 +49,9 @@
     </Compile>
     <Compile Include="StockStore.cs" />
     <Compile Include="ViewModels\Stock.cs" />
+    <Compile Include="ViewStock.xaml.cs">
+      <DependentUpon>ViewStock.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="PCLStorage, Version=1.0.2.0, Culture=neutral, PublicKeyToken=286fe515a2c35b64, processorArchitecture=MSIL">
@@ -107,6 +110,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AddStock.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ViewStock.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

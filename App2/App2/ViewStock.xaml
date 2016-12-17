@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App2.ViewStock">
+  
+  <StackLayout Orientation="Vertical" BackgroundColor="Black">
+    <Label Text="{Binding Name}" FontSize="24" />
+    <Label Text="{Binding Ticker}" FontSize="16" />
+    <Label Text="Amount: {Binding Amount}" FontSize="16" />
+    <Label Text="Purchase Price: {Binding PurchasePrice}" FontSize="16" />
+    <Label Text="Current Price: {Binding ActualPrice}" FontSize="16" />
+    <!--<Label Text="Profit(Loss): { Binding ProfitAmount }" FontSize="16" />-->
+  </StackLayout>
+</ContentPage>

@@ -23,7 +23,8 @@ namespace App2
 
             Stock item = new ViewModels.Stock();
             item.Currency = "EUR";
-            item.Name = "dummy";
+
+            item.Name = txtName.Text;
 
             item.Ticker = txtTicker.Text;
 

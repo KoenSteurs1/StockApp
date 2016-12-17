@@ -22,6 +22,13 @@ namespace App2
         public HomePage()
         {
             InitializeComponent();
+
+            lstView.ItemTapped += async (sender, e) =>
+            {
+                int id;
+                id = ((Stock)e.Item).Id;
+                await Navigation.PushModalAsync(new ViewStock(id));
+            };
         }
 
         protected override async void OnAppearing()

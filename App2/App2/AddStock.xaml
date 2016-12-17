@@ -9,6 +9,10 @@
       <Entry HorizontalOptions="FillAndExpand" x:Name="txtTicker" BackgroundColor="White" TextColor="Black"></Entry>
     </StackLayout>
     <StackLayout Orientation="Horizontal">
+      <Label WidthRequest="80" Text ="Name:" TextColor="White" FontSize="16"></Label>
+      <Entry HorizontalOptions="FillAndExpand" x:Name="txtName" BackgroundColor="White" TextColor="Black"></Entry>
+    </StackLayout>    
+    <StackLayout Orientation="Horizontal">
       <Label WidthRequest="80" Text ="Amount:" TextColor="White" FontSize="16"></Label>
       <Entry HorizontalOptions="FillAndExpand" x:Name="txtAmount" BackgroundColor="White" TextColor="Black"></Entry>
     </StackLayout>
