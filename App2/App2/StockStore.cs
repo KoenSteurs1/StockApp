@@ -79,6 +79,8 @@ namespace App2
 
         public async Task<bool> AddStock(Stock s)
         {
+            // TO DO: get Id for newly added stock!
+
             await Task.Run(() => stocks.Add(s));
 
             return true;

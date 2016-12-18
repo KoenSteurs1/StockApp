@@ -45,6 +45,7 @@ namespace App2
             if (Decimal.TryParse(price, out dPrice))
             {
                 item.PurchasePrice = dPrice;
+                item.ActualPrice = dPrice;
             }
             else
             {
