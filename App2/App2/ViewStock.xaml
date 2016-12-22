@@ -4,7 +4,7 @@
              x:Class="App2.ViewStock">
   
   <StackLayout Orientation="Vertical" BackgroundColor="Black">
-    <Label Text="{Binding Name}" FontSize="24" />
+    <Label Text="{Binding Name}" VerticalOptions="Center" FontSize="36" TextColor="White" HorizontalOptions="Center" />
     <Label Text="{Binding Ticker}" FontSize="16" />
 
     <StackLayout Orientation="Horizontal">

@@ -2,8 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="App2.AddStock">
-  <Label Text="Add Stock" VerticalOptions="Center" HorizontalOptions="Center" />
+  
   <StackLayout Orientation="Vertical" BackgroundColor="Black">
+    <Label Text="Add Stock" VerticalOptions="Center" FontSize="36" TextColor="White" HorizontalOptions="Center" />
     <StackLayout Orientation="Horizontal">
       <Label WidthRequest="80" Text ="Ticker:" TextColor="White" FontSize="16"></Label>
       <Entry HorizontalOptions="FillAndExpand" x:Name="txtTicker" BackgroundColor="White" TextColor="Black"></Entry>
