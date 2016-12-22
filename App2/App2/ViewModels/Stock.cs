@@ -79,6 +79,12 @@ namespace App2.ViewModels
                 return ProfitLossPercentage.ToString("0.##") + "%";
             }
 
+        }public string ProfitLossColor
+        {
+            get
+            {
+                return (ProfitLossAmount > 0 ? "Green" : "Red");
+            }
         }
     }
 }

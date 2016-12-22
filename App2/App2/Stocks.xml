@@ -3,9 +3,9 @@
   <Stock>
     <Id>1</Id>
     <Name>Ageas</Name>
-    <Ticker>AGS.BR</Ticker>
+    <Ticker>EBR:AGS</Ticker>
     <Currency>EUR</Currency>
-    <ActualPrice>32.54</ActualPrice>
+    <ActualPrice>0.00</ActualPrice>
     <PurchasePrice>28.12</PurchasePrice>
     <PurchaseDate>2009-03-13T22:16:00</PurchaseDate>
     <Amount>50</Amount>
@@ -13,9 +13,9 @@
   <Stock>
     <Id>2</Id>
     <Name>Royal Dutch Shell</Name>
-    <Ticker>RDSA.AS</Ticker>
+    <Ticker>AMS:RDSA</Ticker>
     <Currency>EUR</Currency>
-    <ActualPrice>25.45</ActualPrice>
+    <ActualPrice>0.00</ActualPrice>
     <PurchasePrice>20.12</PurchasePrice>
     <PurchaseDate>2009-03-13T22:16:00</PurchaseDate>
     <Amount>50</Amount>
@@ -23,9 +23,9 @@
   <Stock>
     <Id>3</Id>
     <Name>Boskalis</Name>
-    <Ticker>BOKA.AS</Ticker>
+    <Ticker>AMS:BOKA</Ticker>
     <Currency>EUR</Currency>
-    <ActualPrice>31.54</ActualPrice>
+    <ActualPrice>0.00</ActualPrice>
     <PurchasePrice>28.09</PurchasePrice>
     <PurchaseDate>2009-03-13T22:16:00</PurchaseDate>
     <Amount>50</Amount>

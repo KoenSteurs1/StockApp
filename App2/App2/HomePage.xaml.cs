@@ -1,4 +1,5 @@
-﻿using App2.ViewModels;
+﻿using App2.Services;
+using App2.ViewModels;
 using PCLStorage;
 using SQLite;
 using System;
@@ -9,6 +10,7 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.Serialization.Json;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 using Xamarin.Forms;
@@ -35,6 +37,7 @@ namespace App2
         {
             ss = new StockStore();
             await ss.LoadStocks();
+            await ss.UpdatePrices();
 
             lstView.ItemsSource = ss.stocks;
 

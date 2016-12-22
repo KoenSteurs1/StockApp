@@ -1,4 +1,5 @@
-﻿using App2.ViewModels;
+﻿using App2.Services;
+using App2.ViewModels;
 using PCLStorage;
 using System;
 using System.Collections.Generic;
@@ -79,7 +80,7 @@ namespace App2
 
         public async Task<bool> AddStock(Stock s)
         {
-            // TO DO: get Id for newly added stock!
+            s.Id = GetMaxId() + 1;
 
             await Task.Run(() => stocks.Add(s));
 
@@ -91,6 +92,16 @@ namespace App2
             await Task.Run(() => stocks.Remove(s));
 
             return true;
+        }
+
+        private int GetMaxId()
+        {
+            int i = 0;
+
+            if (stocks.Count > 0)
+                i = stocks.Max(x => x.Id);
+
+            return i;
         }
 
         private async Task <ObservableCollection<Stock>> LoadStocksFromLocalFile()
@@ -107,6 +118,27 @@ namespace App2
             return (ObservableCollection<Stock>)serializer.Deserialize(textReader);
         }
 
+        private async Task<bool> UpdatePrice(Stock s)
+        {
+            string ticker = s.Ticker;
+            QuotePriceService qps = new QuotePriceService();
+            decimal? price = await qps.getPrice(ticker);
+            if (price != null)
+                s.ActualPrice = (decimal)price;
+
+            return true;
+        }
+        public async Task<bool> UpdatePrices()
+        {
+            foreach(Stock s in stocks)
+            {
+                await UpdatePrice(s);
+            }
+
+            await this.SaveStocks();
+
+            return true;
+        }
         private ObservableCollection<Stock> LoadStocksFromEmbeddedResource()
         {
             ObservableCollection<Stock> localStocks = null;
