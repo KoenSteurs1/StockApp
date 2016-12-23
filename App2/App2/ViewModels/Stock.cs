@@ -6,14 +6,26 @@ using System.Threading.Tasks;
 using System.Runtime.Serialization.Json;
 using System.Runtime.Serialization;
 using System.Globalization;
+using System.ComponentModel;
 
 namespace App2.ViewModels
 {
     [DataContract]
-    public class Stock
+    public class Stock : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            var handler = PropertyChanged;
+            if (handler != null)
+                handler(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+
+        private int _id;
         [DataMember]
-        public int Id { get; set; }
+        public int Id { get { return _id; } set { _id = value; OnPropertyChanged("Id"); } }
         [DataMember]
         public string Name { get; set; }
         [DataMember]

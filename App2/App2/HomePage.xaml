@@ -4,7 +4,7 @@
              x:Class="App2.HomePage">
   <StackLayout BackgroundColor="Black">
 
-    <Label Text="My Stocks" VerticalOptions="Center" FontSize="36" TextColor="White" HorizontalOptions="Center" />   
+    <Label x:Name="txtTitle" Text="My Stocks" VerticalOptions="Center" FontSize="36" TextColor="White" HorizontalOptions="Center" />   
     <ListView x:Name="lstView" RowHeight="60">
       <ListView.ItemTemplate>
         <DataTemplate>
@@ -27,6 +27,8 @@
         </DataTemplate>
       </ListView.ItemTemplate>
     </ListView>
+    <Button Clicked="Button_UpdatePrices" Text="Update Prices" TextColor="White" HorizontalOptions="FillAndExpand"></Button>
+    <Button Clicked="Button_ResetPrices" Text="Reset Prices" TextColor="White" HorizontalOptions="FillAndExpand"></Button>
     <Button Clicked="Button_OnClicked" Text="Add stock" TextColor="White" HorizontalOptions="FillAndExpand"></Button>
     <!--<Button Clicked="ButtonSave_OnClicked" Text="Save stocks" TextColor="White"></Button>-->
     <!--<Button Clicked="ButtonLoad_OnClicked" Text="Load from resource" TextColor="White"></Button>

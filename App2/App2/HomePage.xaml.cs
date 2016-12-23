@@ -14,6 +14,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 using Xamarin.Forms;
+using System.Runtime.CompilerServices;
 
 namespace App2
 {
@@ -25,6 +26,8 @@ namespace App2
         {
             InitializeComponent();
 
+            ss = new StockStore();
+
             lstView.ItemTapped += async (sender, e) =>
             {
                 int id;
@@ -33,20 +36,57 @@ namespace App2
             };
         }
 
+        protected override void OnBindingContextChanged()
+        {
+            base.OnBindingContextChanged();
+        }
+
         protected override async void OnAppearing()
         {
-            ss = new StockStore();
-            await ss.LoadStocks();
-            await ss.UpdatePrices();
-
-            lstView.ItemsSource = ss.stocks;
-
             base.OnAppearing();
+
+            await BindList();
+
+            Task t = Task.Run(() => UpdatePrices());
+            await t.ContinueWith((t1) =>
+               {
+                   Device.BeginInvokeOnMainThread(async () =>
+                   {
+                       await ss.SaveStocks();
+                       await ss.LoadStocks();
+                       lstView.ItemsSource = ss.stocks;
+                   });
+               });
+        }
+        
+        private async Task BindList()
+        {
+            await ss.LoadStocks();
+            lstView.ItemsSource = ss.stocks;
+        }
+
+        async private Task UpdatePrices()
+        {
+            await ss.UpdatePrices();
         }
 
         async void Button_OnClicked(object sender, EventArgs args)
         {
             await Navigation.PushModalAsync(new AddStock());
+        }
+
+        async void Button_ResetPrices(object sender, EventArgs args)
+        {
+            await ss.ResetPrices();
+            await ss.LoadStocks();
+            await BindList();
+        }
+
+        async void Button_UpdatePrices(object sender, EventArgs args)
+        {
+            await ss.UpdatePrices();
+            await ss.SaveStocks();
+            await BindList();
         }
 
         public async void OnDelete(object sender, EventArgs e)

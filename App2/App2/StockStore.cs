@@ -4,6 +4,7 @@ using PCLStorage;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -13,9 +14,18 @@ using System.Xml.Serialization;
 
 namespace App2
 {
-    public class StockStore
+    public class StockStore : INotifyPropertyChanged
     {
-        public ObservableCollection<Stock> stocks { get; set; }
+        private ObservableCollection<Stock> _stocks;
+        public ObservableCollection<Stock> stocks { get { return _stocks; } set { _stocks = value; OnPropertyChanged("stock"); } }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            var handler = PropertyChanged;
+            if (handler != null)
+                handler(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         public StockStore() 
         {
@@ -42,6 +52,16 @@ namespace App2
             return returnvalue;
         }
 
+        public async Task ResetPrices()
+        {
+            await LoadStocks();
+            foreach (Stock s in stocks)
+            {
+                //s.Id = s.Id; // to raise property changed event
+                s.ActualPrice = 0;
+            }
+            await SaveStocks();
+        }
         async public Task<bool> SaveStocks()
         {
             var serializer = new XmlSerializer(typeof(ObservableCollection<Stock>));
@@ -135,7 +155,7 @@ namespace App2
                 await UpdatePrice(s);
             }
 
-            await this.SaveStocks();
+            //await this.SaveStocks();
 
             return true;
         }
